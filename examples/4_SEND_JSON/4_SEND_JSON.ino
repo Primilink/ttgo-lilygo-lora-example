@@ -70,7 +70,7 @@ void loop()
     while (1)
     {
         // JSON
-        StaticJsonDocument<200> packet;
+        StaticJsonDocument<200> packet; // 200 bytes, if you are sending bigger packets, increase this number, 1024 bytes is a good start
 
         packet["id"] = i;
         packet["value"] = random(0, 100);
