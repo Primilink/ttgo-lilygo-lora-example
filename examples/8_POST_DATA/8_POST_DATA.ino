@@ -3,10 +3,10 @@
 #include <HTTPClient.h> // HTTP client library for post requests
 
 // Your Domain name with URL path or IP address with path
-String serverName = ""; // server name
+String serverName = "http://url.to.your.api/"; // server name
 
-const char *ssid = "";
-const char *password = "";
+const char *ssid = "YourSSID";
+const char *password = "YourPassword";
 
 // Libraries import
 #include <SPI.h>
@@ -80,6 +80,7 @@ void debugPrint(String text, bool lineBreak)
         display.setCursor(0, 0);
     }
     display.println(text);
+    display.display();
     Serial.println(text);
 }
 
@@ -151,8 +152,6 @@ void loop()
     if (Serial.available())
     {
         String serial_message = Serial.readString();
-
-        DynamicJsonDocument sending_packet(1024);
 
         // remove trailing \n or \r
         serial_message.trim();
